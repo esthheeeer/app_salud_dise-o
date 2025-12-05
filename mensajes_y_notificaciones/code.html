@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mensajes - Salud Madrid</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1" rel="stylesheet"/>
+
+<style>
+.material-symbols-outlined {
+  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+}
+body{ min-height: max(884px,100dvh); }
+</style>
+
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode:"class",
+  theme:{
+    extend:{
+      colors:{
+        "primary":"#135bec",
+        "background-light":"#f6f6f8",
+        "background-dark":"#101622",
+      },
+      fontFamily:{ display:["Lexend","sans-serif"] }
+    }
+  }
+};
+</script>
+
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white">
+
+<div class="relative flex min-h-screen w-full flex-col">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-10 flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-slate-200/50 dark:border-slate-800/50">
+  <a href="../salud_madrid_home/code.html" class="flex size-12 shrink-0 items-center justify-center">
+      <span class="material-symbols-outlined text-slate-900 dark:text-white">arrow_back</span>
+  </a>
+  <h1 class="text-lg font-bold flex-1 text-center text-slate-900 dark:text-white">Mensajes</h1>
+  <div class="flex w-12"></div>
+</header>
+
+<!-- FILTER CHIPS -->
+<div id="filterBar" class="flex gap-3 p-4 overflow-x-auto">
+  <div data-filter="todos" class="chip bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-200 rounded-full px-5 h-10 flex items-center cursor-pointer">Todos</div>
+  <div data-filter="noleidos" class="chip bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-200 rounded-full px-5 h-10 flex items-center cursor-pointer">No leídos</div>
+  <div data-filter="citas" class="chip bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-200 rounded-full px-5 h-10 flex items-center cursor-pointer">Citas</div>
+  <div data-filter="resultados" class="chip bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-200 rounded-full px-5 h-10 flex items-center cursor-pointer">Resultados</div>
+</div>
+
+<!-- LISTA -->
+<main id="messagesList" class="flex-1 px-2 pb-24"></main>
+
+<!-- BOTÓN NUEVO MENSAJE -->
+<div class="fixed bottom-6 right-6">
+  <button id="openModalBtn"
+    class="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-white shadow-lg hover:scale-105">
+    <span class="material-symbols-outlined text-3xl">edit</span>
+  </button>
+</div>
+
+<!-- MODAL NUEVO MENSAJE -->
+<div id="modal" class="hidden fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[999]">
+  <div class="bg-white dark:bg-background-dark rounded-2xl p-6 w-11/12 max-w-md shadow-xl flex flex-col gap-4">
+    <h2 class="text-lg font-bold text-slate-900 dark:text-white">Nuevo mensaje</h2>
+
+    <!-- Selección de departamento -->
+    <select id="msgDept"
+      class="w-full rounded-lg p-3 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white outline-none">
+      <option value="" disabled selected>Seleccionar departamento...</option>
+      <option value="medicina">Medicina</option>
+      <option value="enfermeria">Enfermería</option>
+      <option value="vacunacion">Vacunación</option>
+      <option value="administracion">Administración</option>
+      <option value="otro">Otro</option>
+    </select>
+
+    <textarea id="msgText" class="w-full h-32 rounded-lg p-3 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white resize-none outline-none"
+      placeholder="Escribe tu mensaje..."></textarea>
+
+    <div class="flex justify-end gap-3 pt-2">
+      <button id="cancelModal" class="px-4 py-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white">Cancelar</button>
+      <button id="sendModal" class="px-4 py-2 rounded-lg bg-primary text-white">Enviar</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+/* ===========================
+        DATOS
+=========================== */
+const mensajes = {
+  todos: [
+    { tipo:"resultado", leido:false, titulo:"Resultado de Analítica", hora:"10:45 AM", centro:"Centro de Salud Goya",
+      icono:"science", prioridad:true,
+      texto:"Tus resultados de la analítica del 15 de Octubre ya están disponibles para su consulta." },
+
+    { tipo:"cita", leido:true, titulo:"Recordatorio de Cita", hora:"Ayer", centro:"Hospital La Paz - Traumatología",
+      icono:"event_upcoming", prioridad:false,
+      texto:"Te recordamos tu cita con el Dr. Martínez mañana a las 11:30h." },
+
+    { tipo:"cita", leido:true, titulo:"Confirmación de Cita", hora:"22 Oct", centro:"Atención Primaria",
+      icono:"task_alt", prioridad:false,
+      texto:"Tu cita con tu médico de cabecera ha sido confirmada para el 28 de Noviembre." },
+
+    { tipo:"resultado", leido:false, titulo:"Aviso Importante", hora:"21 Oct", centro:"Servicio Madrileño de Salud",
+      icono:"priority_high", prioridad:true,
+      texto:"El horario de su centro de salud cambiará temporalmente el próximo lunes." }
+  ],
+
+  noleidos: function(){ return this.todos.filter(m => !m.leido); },
+  citas: function(){ return this.todos.filter(m => m.tipo === "cita"); },
+  resultados: function(){ return this.todos.filter(m => m.tipo === "resultado"); }
+};
+
+
+/* ===========================
+   RENDER DE MENSAJES
+=========================== */
+function renderMensajes(tipo){
+  const lista = document.getElementById("messagesList");
+  lista.innerHTML = "";
+
+  let datos = [];
+
+  if (tipo === "todos") datos = mensajes.todos;
+  else datos = mensajes[tipo]();
+
+  if (datos.length === 0){
+    lista.innerHTML = "<p class='text-center text-slate-500 mt-10'>No hay mensajes.</p>";
+    return;
+  }
+
+  datos.forEach(msg => {
+    lista.innerHTML += `
+      <div class="flex gap-4 px-4 py-3 justify-between border-b border-slate-300 dark:border-slate-800">
+        <div class="flex items-start gap-4 flex-1">
+          <div class="relative mt-1">
+            <div class="flex items-center justify-center rounded-full ${msg.prioridad ? 'bg-red-500/10' : 'bg-slate-200 dark:bg-slate-800'} size-12">
+              <span class="material-symbols-outlined ${msg.prioridad ? 'text-red-500' : 'text-slate-600 dark:text-slate-300'}">${msg.icono}</span>
+            </div>
+            ${!msg.leido ? `<span class="absolute top-0 right-0 block h-3 w-3 rounded-full bg-primary"></span>` : ""}
+          </div>
+
+          <div class="flex flex-col flex-1">
+            <p class="text-slate-900 dark:text-white text-base ${msg.leido ? 'font-medium' : 'font-bold'}">${msg.titulo}</p>
+            <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">${msg.texto}</p>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">${msg.centro}</p>
+          </div>
+        </div>
+        <p class="text-slate-500 dark:text-slate-400 text-sm">${msg.hora}</p>
+      </div>
+    `;
+  });
+}
+
+// Inicial
+renderMensajes("todos");
+
+
+/* ===========================
+       FILTROS
+=========================== */
+document.querySelectorAll(".chip").forEach(chip=>{
+  chip.addEventListener("click",()=>{
+
+    // Reset chips
+    document.querySelectorAll(".chip").forEach(c=>{
+      c.classList.remove("bg-primary","text-white");
+      c.classList.add("bg-slate-200","dark:bg-slate-800","text-slate-900","dark:text-slate-200");
+    });
+
+    // Activar seleccionado
+    chip.classList.remove("bg-slate-200","dark:bg-slate-800","text-slate-900","dark:text-slate-200");
+    chip.classList.add("bg-primary","text-white");
+
+    // Render
+    renderMensajes(chip.dataset.filter);
+  });
+});
+
+// Activar "Todos"
+document.querySelector('[data-filter="todos"]').click();
+
+
+
+/* ===========================
+       MODAL NUEVO MENSAJE
+=========================== */
+const modal = document.getElementById("modal");
+
+document.getElementById("openModalBtn").onclick = ()=>{
+  modal.classList.remove("hidden");
+};
+
+document.getElementById("cancelModal").onclick = ()=>{
+  modal.classList.add("hidden");
+};
+
+document.getElementById("sendModal").onclick = ()=>{
+  document.getElementById("msgText").value = "";
+  document.getElementById("msgDept").selectedIndex = 0;
+  modal.classList.add("hidden");
+};
+</script>
+
+<script src="../shared/settings.js"></script>
+
+</body>
+</html>

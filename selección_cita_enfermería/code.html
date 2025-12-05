@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pedir Cita — Opción A</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#135bec",
+          "background-light": "#f6f6f8",
+          "background-dark": "#101622",
+        },
+        fontFamily: { "display": ["Lexend", "sans-serif"] }
+      }
+    }
+  }
+</script>
+
+<style>
+  body { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; min-height: max(884px, 100dvh); }
+  .group:has(:checked) .tick-icon { display:flex; }
+  /* calendar visuals */
+  .day { padding: 0.5rem; border-radius: 0.375rem; }
+  .day:hover { background-color: rgba(19,91,236,0.08); cursor:pointer; }
+  .day.selected { background-color: rgba(19,91,236,0.18); color: #08306b; }
+  .time-btn { transition: box-shadow .12s, transform .08s; }
+  .time-btn.selected { box-shadow: 0 0 0 3px rgba(19,91,236,0.12); transform: translateY(-1px); background-color: rgba(19,91,236,0.08); }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white">
+
+<div class="relative flex min-h-screen w-full flex-col">
+
+  <!-- Top bar -->
+  <div class="flex items-center p-4 pb-2 justify-between sticky top-0 z-20 bg-background-light dark:bg-background-dark border-b border-slate-200 dark:border-slate-800">
+    <a href="../gestión_de_citas_4/code.html" class="flex size-12 shrink-0 items-center justify-center">
+      <span class="material-symbols-outlined text-gray-800 dark:text-white">arrow_back</span>
+    </a>
+    <h1 class="text-lg font-bold text-center flex-1">Pedir Cita — Opción A</h1>
+    <div class="w-12"></div>
+  </div>
+
+  <div class="flex-grow px-4 py-4">
+
+    <!-- Doctor card -->
+    <div class="mt-4">
+      <div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-slate-800/50 p-4">
+        <div class="flex flex-col gap-1 flex-[2_2_0px]">
+          <p class="text-slate-900 dark:text-white text-base font-bold leading-tight">Dr. Javier López</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm">Enfermería</p>
+        </div>
+        <div class="w-20 h-20 bg-center bg-no-repeat bg-cover rounded-lg"
+             style='background-image: url("https://tse4.mm.bing.net/th/id/OIP.Ry-3c78RLh5fzCgs7cMHEgHaE7?rs=1&pid=ImgDetMain&o=7&rm=3");'>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pedir otra fecha button -->
+    <div class="mt-6 flex items-center justify-end">
+      <button id="btn-pedir-otra" class="rounded-lg bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 px-4 py-2 flex items-center gap-2 hover:shadow-sm">
+        <span class="material-symbols-outlined">calendar_month</span>
+        <span class="text-sm font-medium">Pedir otra fecha</span>
+      </button>
+    </div>
+
+    <h2 class="text-slate-900 dark:text-white text-lg font-bold pt-6 pb-2">Próximas citas disponibles</h2>
+
+    <!-- Lista de citas (contenedor) -->
+    <div id="lista-citas" class="flex flex-col gap-2 p-4">
+      <!-- Existing selectable options -->
+      <label class="flex items-center gap-4 bg-white dark:bg-slate-800/50 p-4 min-h-14 justify-between rounded-lg cursor-pointer group" for="cita1">
+        <div class="flex items-center gap-4 flex-1">
+          <div class="text-slate-700 dark:text-white flex items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 size-10">
+            <span class="material-symbols-outlined text-2xl">calendar_month</span>
+          </div>
+          <p class="text-slate-800 dark:text-white text-base font-medium flex-1 truncate">Martes, 28 de mayo - 10:30 h</p>
+        </div>
+        <input checked class="sr-only" id="cita1" name="appointment" type="radio"/>
+        <div class="shrink-0">
+          <div class="tick-icon hidden size-7 items-center justify-center rounded-full bg-white text-primary">
+            <span class="material-symbols-outlined text-xl font-bold">done</span>
+          </div>
+        </div>
+      </label>
+
+      <label class="flex items-center gap-4 bg-white dark:bg-slate-800/50 p-4 min-h-14 justify-between rounded-lg cursor-pointer group" for="cita2">
+        <div class="flex items-center gap-4 flex-1">
+          <div class="text-slate-700 dark:text-white flex items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 size-10">
+            <span class="material-symbols-outlined text-2xl">calendar_month</span>
+          </div>
+          <p class="text-slate-800 dark:text-white text-base font-medium flex-1 truncate">Martes, 28 de mayo - 11:00 h</p>
+        </div>
+        <input class="sr-only" id="cita2" name="appointment" type="radio"/>
+        <div class="shrink-0">
+          <div class="tick-icon hidden size-7 items-center justify-center rounded-full bg-white text-primary">
+            <span class="material-symbols-outlined text-xl font-bold">done</span>
+          </div>
+        </div>
+      </label>
+
+      <label class="flex items-center gap-4 bg-white dark:bg-slate-800/50 p-4 min-h-14 justify-between rounded-lg cursor-pointer group" for="cita3">
+        <div class="flex items-center gap-4 flex-1">
+          <div class="text-slate-700 dark:text-white flex items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 size-10">
+            <span class="material-symbols-outlined text-2xl">calendar_month</span>
+          </div>
+          <p class="text-slate-800 dark:text-white text-base font-medium flex-1 truncate">Miércoles, 29 de mayo - 09:15 h</p>
+        </div>
+        <input class="sr-only" id="cita3" name="appointment" type="radio"/>
+        <div class="shrink-0">
+          <div class="tick-icon hidden size-7 items-center justify-center rounded-full bg-white text-primary">
+            <span class="material-symbols-outlined text-xl font-bold">done</span>
+          </div>
+        </div>
+      </label>
+
+    </div>
+
+    <p class="text-center text-slate-600 dark:text-slate-400 text-sm mt-4 mb-8">
+      Si necesita una fecha distinta, puede solicitarla llamando al
+      <span class="font-semibold text-primary">900 123 456</span>.
+    </p>
+
+  </div>
+
+  <!-- Sticky footer confirm -->
+  <div class="sticky bottom-0 bg-background-light dark:bg-background-dark p-4 pt-4 border-t border-slate-200 dark:border-slate-800 z-10">
+    <div class="flex flex-col gap-3">
+      <p id="confirm-text" class="text-slate-600 dark:text-slate-400 text-sm text-center">¿Desea confirmar su cita?</p>
+      <button id="btn-confirm"
+              class="flex items-center justify-center gap-2 rounded-xl bg-primary text-base font-bold text-white h-14 w-full hover:bg-blue-600 transition-colors"
+              onclick="window.location.href='../gestión_de_citas_1/code.html'">
+        Confirmar Cita
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: calendario (mini) -->
+<div id="modal-cal" class="fixed inset-0 bg-black/50 z-40 hidden items-center justify-center p-4">
+  <div class="bg-white dark:bg-[#061127] max-w-2xl w-full rounded-xl shadow-xl overflow-hidden">
+    <div class="p-4 border-b border-gray-100 dark:border-slate-800 flex items-center justify-between">
+      <h3 class="font-bold">Elegir fecha y hora</h3>
+      <button id="close-cal" class="text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined">close</span></button>
+    </div>
+
+    <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Calendario (mini) -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <button id="prev-month" class="px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-slate-700"><span class="material-symbols-outlined">chevron_left</span></button>
+          <div id="month-year" class="font-medium"></div>
+          <button id="next-month" class="px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-slate-700"><span class="material-symbols-outlined">chevron_right</span></button>
+        </div>
+
+        <div class="grid grid-cols-7 gap-1 text-center text-xs text-slate-500 dark:text-slate-400 mb-1">
+          <!-- week days -->
+          <div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div><div>Dom</div>
+        </div>
+
+        <div id="calendar-grid" class="grid grid-cols-7 gap-1 mt-2 text-center text-sm">
+          <!-- days injected -->
+        </div>
+      </div>
+
+      <!-- Horarios -->
+      <div>
+        <p class="text-sm mb-2">Horas disponibles</p>
+        <div id="times-list" class="flex flex-wrap gap-2">
+          <!-- time buttons injected -->
+        </div>
+
+        <div class="mt-4">
+          <p class="text-xs text-slate-500 dark:text-slate-400">Nota: horas generadas aleatoriamente entre 08:00 y 20:00. Pulse la hora para seleccionar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-4 border-t border-gray-100 dark:border-slate-800 flex items-center justify-end gap-2">
+      <button id="btn-cancel" class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 bg-transparent">Cancelar</button>
+      <button id="btn-accept" class="px-4 py-2 rounded-lg bg-primary text-white opacity-60 cursor-not-allowed" disabled>Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- LÓGICA (calendario mini, horas aleatorias, añadir cita) ---------- */
+const btnPedir = document.getElementById('btn-pedir-otra');
+const modal = document.getElementById('modal-cal');
+const closeCal = document.getElementById('close-cal');
+const prevMonth = document.getElementById('prev-month');
+const nextMonth = document.getElementById('next-month');
+const monthYear = document.getElementById('month-year');
+const calendarGrid = document.getElementById('calendar-grid');
+const timesList = document.getElementById('times-list');
+const btnCancel = document.getElementById('btn-cancel');
+const btnAccept = document.getElementById('btn-accept');
+const listaCitas = document.getElementById('lista-citas');
+const confirmText = document.getElementById('confirm-text');
+
+let today = new Date();
+let viewYear = today.getFullYear();
+let viewMonth = today.getMonth(); // 0-index
+let selectedDate = null;
+let selectedTime = null;
+let appointmentCounter = 200; // id seed
+
+// open/close modal
+function openModal(){
+  modal.classList.remove('hidden');
+  renderCalendar(viewYear, viewMonth);
+}
+function closeModalFunc(){
+  modal.classList.add('hidden');
+  clearSelectionUI();
+}
+
+btnPedir.addEventListener('click', openModal);
+closeCal.addEventListener('click', closeModalFunc);
+btnCancel.addEventListener('click', closeModalFunc);
+prevMonth.addEventListener('click', () => { viewMonth--; if (viewMonth<0){ viewMonth=11; viewYear--; } renderCalendar(viewYear, viewMonth); });
+nextMonth.addEventListener('click', () => { viewMonth++; if (viewMonth>11){ viewMonth=0; viewYear++; } renderCalendar(viewYear, viewMonth); });
+
+// render calendar grid
+function renderCalendar(year, month){
+  monthYear.textContent = new Date(year, month, 1).toLocaleString('es-ES', { month: 'long', year: 'numeric' });
+  calendarGrid.innerHTML = '';
+
+  const firstDow = (new Date(year, month, 1).getDay() + 6) % 7; // 0 = Mon
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+
+  // blanks
+  for (let i=0;i<firstDow;i++){
+    const blank = document.createElement('div');
+    calendarGrid.appendChild(blank);
+  }
+
+  for (let d=1; d<=daysInMonth; d++){
+    const date = new Date(year, month, d);
+    const dayEl = document.createElement('div');
+    dayEl.className = 'day p-2 rounded text-sm flex items-center justify-center';
+    dayEl.textContent = d;
+
+    const isPast = new Date(year, month, d, 23,59,59) < new Date();
+    if (isPast) {
+      dayEl.classList.add('text-slate-400','opacity-60');
+      dayEl.style.cursor = 'not-allowed';
+    } else {
+      dayEl.classList.add('text-slate-700','dark:text-white');
+      dayEl.addEventListener('click', () => selectDate(date, dayEl));
+    }
+
+    calendarGrid.appendChild(dayEl);
+  }
+  clearSelectionUI(); // reset
+}
+
+// clear UI selection
+function clearSelectionUI(){
+  document.querySelectorAll('.day').forEach(el => el.classList.remove('selected'));
+  document.querySelectorAll('.time-btn').forEach(el => el.classList.remove('selected'));
+  selectedDate = null;
+  selectedTime = null;
+  updateAcceptState();
+  timesList.innerHTML = '';
+}
+
+// when a day is clicked
+function selectDate(date, dayEl){
+  document.querySelectorAll('.day').forEach(el => el.classList.remove('selected'));
+  dayEl.classList.add('selected');
+  selectedDate = date;
+  // generate random times for that date (between 08 and 20)
+  renderRandomTimesForDate(date);
+  updateAcceptState();
+}
+
+// generate n random times between 08:00 and 20:00, rounded to 15-min increments, unique & sorted
+function renderRandomTimesForDate(date){
+  timesList.innerHTML = '';
+  const n = 6; // number of slots to generate
+  const slots = new Set();
+  while (slots.size < n) {
+    const hour = Math.floor(Math.random() * (20 - 8 + 1)) + 8; // 8..20
+    const minuteOptions = [0, 15, 30, 45];
+    const minute = minuteOptions[Math.floor(Math.random() * minuteOptions.length)];
+    // build time string HH:MM
+    const hh = String(hour).padStart(2,'0');
+    const mm = String(minute).padStart(2,'0');
+    slots.add(`${hh}:${mm}`);
+  }
+  const arr = Array.from(slots).sort((a,b) => {
+    const [ah,am]=a.split(':').map(Number), [bh,bm]=b.split(':').map(Number);
+    return ah*60+am - (bh*60+bm);
+  });
+
+  for (const t of arr){
+    const btn = document.createElement('button');
+    btn.type='button';
+    btn.className='time-btn px-3 py-2 rounded bg-gray-100 dark:bg-slate-700 text-sm';
+    btn.textContent = t;
+    btn.addEventListener('click', () => selectTime(t, btn));
+    timesList.appendChild(btn);
+  }
+}
+
+// selecting a time
+function selectTime(timeStr, btnEl){
+  document.querySelectorAll('.time-btn').forEach(el => el.classList.remove('selected'));
+  btnEl.classList.add('selected');
+  selectedTime = timeStr;
+  updateAcceptState();
+}
+
+// enable/disable accept
+function updateAcceptState(){
+  if (selectedDate && selectedTime){
+    btnAccept.disabled = false;
+    btnAccept.classList.remove('opacity-60','cursor-not-allowed');
+  } else {
+    btnAccept.disabled = true;
+    btnAccept.classList.add('opacity-60','cursor-not-allowed');
+  }
+}
+
+/* ACEPTAR: crear la cita en la lista y seleccionarla */
+btnAccept.addEventListener('click', () => {
+  if (!selectedDate || !selectedTime) return;
+
+  const opts = { weekday:'long', day:'numeric', month:'long' };
+  const formattedDay = selectedDate.toLocaleDateString('es-ES', opts);
+  const displayText = `${capitalizar(formattedDay)} - ${selectedTime} h`;
+
+  appointmentCounter++;
+  const newId = 'cita' + appointmentCounter;
+
+  // create label element
+  const label = document.createElement('label');
+  label.className = 'flex items-center gap-4 bg-white dark:bg-slate-800/50 p-4 min-h-14 justify-between rounded-lg cursor-pointer group';
+  label.htmlFor = newId;
+
+  const left = document.createElement('div');
+  left.className = 'flex items-center gap-4 flex-1';
+  left.innerHTML = `<div class="text-slate-700 dark:text-white flex items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 size-10">
+    <span class="material-symbols-outlined text-2xl">calendar_month</span>
+  </div>
+  <p class="text-slate-800 dark:text-white text-base font-medium flex-1 truncate">${displayText}</p>`;
+
+  const input = document.createElement('input');
+  input.className = 'sr-only';
+  input.type = 'radio';
+  input.name = 'appointment';
+  input.id = newId;
+
+  const right = document.createElement('div');
+  right.className = 'shrink-0';
+  right.innerHTML = `<div class="tick-icon hidden size-7 items-center justify-center rounded-full bg-white text-primary">
+    <span class="material-symbols-outlined text-xl font-bold">done</span>
+  </div>`;
+
+  label.appendChild(left);
+  label.appendChild(input);
+  label.appendChild(right);
+
+  // add to top
+  listaCitas.prepend(label);
+
+  // attach click handler to newly created radio (so selection updates confirm text & visual)
+  input.addEventListener('change', () => {
+    updateSelectedVisuals();
+  });
+
+  // select it programmatically
+  input.checked = true;
+  updateSelectedVisuals();
+
+  // update confirm text
+  confirmText.textContent = `¿Desea confirmar su cita para el ${displayText}?`;
+
+  // close modal and reset selection
+  closeModalFunc();
+});
+
+// ensure existing radios update confirm text & visuals
+listaCitas.querySelectorAll('input[name="appointment"]').forEach(r => {
+  r.addEventListener('change', updateSelectedVisuals);
+});
+
+function updateSelectedVisuals(){
+  // for every label radio, add/remove a 'selected' class to show tick icon
+  const radios = listaCitas.querySelectorAll('input[name="appointment"]');
+  radios.forEach(r => {
+    const label = r.closest('label');
+    if (!label) return;
+    const tick = label.querySelector('.tick-icon');
+    if (r.checked){
+      if (tick) tick.classList.remove('hidden');
+      label.classList.add('ring','ring-primary/20');
+      // update confirm text using inner p
+      const p = label.querySelector('p');
+      const text = p ? p.textContent : '';
+      confirmText.textContent = `¿Desea confirmar su cita para el ${text}?`;
+    } else {
+      if (tick) tick.classList.add('hidden');
+      label.classList.remove('ring','ring-primary/20');
+    }
+  });
+}
+
+// helper capitalize
+function capitalizar(s){ if(!s) return s; return s.charAt(0).toUpperCase() + s.slice(1); }
+
+/* Init */
+renderCalendar(viewYear, viewMonth);
+updateAcceptState();
+
+</script>
+
+<!-- you may keep settings.js if used -->
+<script src="../shared/settings.js"></script>
+</body>
+</html>

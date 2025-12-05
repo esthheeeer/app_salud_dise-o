@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pedir Nueva Cita - Salud Madrid</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<style>
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+</style>
+
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#135bec",
+        "background-light": "#f6f6f8",
+        "background-dark": "#101622",
+        "accent-green": "#4CAF50",
+        "accent-red": "#D32F2F",
+        "text-light": "#212121",
+        "text-dark": "#F5F5F5",
+        "card-light": "#ffffff",
+        "card-dark": "#1c1f27",
+        "subtle-light": "#e0e0e0",
+        "subtle-dark": "#282e39",
+        "text-subtle-light": "#616161",
+        "text-subtle-dark": "#9da6b9"
+      },
+      fontFamily: { "display": ["Lexend", "sans-serif"] },
+      borderRadius: {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+        "full": "9999px"
+      },
+    },
+  },
+}
+</script>
+
+<style> body { min-height: max(884px, 100dvh); } </style>
+
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen flex-col">
+
+<header class="sticky top-0 z-10 flex items-center justify-between bg-background-light dark:bg-background-dark p-4">
+  <button onclick="window.location.href='../gestión_de_citas_2/code.html'" class="flex size-12 items-center justify-center">
+    <span class="material-symbols-outlined text-3xl">arrow_back</span>
+  </button>
+  <h1 class="flex-1 text-center text-xl font-bold leading-tight tracking-[-0.015em]">Pedir Nueva Cita</h1>
+  <div class="size-12"></div>
+</header>
+
+<main class="flex flex-1 flex-col p-4">
+
+<!-- SELECTOR TELEFÓNICA / PRESENCIAL -->
+<div class="w-full max-w-md self-center">
+  <div class="mb-6 rounded-xl bg-card-light p-1.5 shadow-sm dark:bg-subtle-dark">
+    <div class="grid grid-cols-2 gap-1">
+
+      <button id="btnPres"
+        class="rounded-lg bg-primary py-3 px-4 text-center text-lg font-semibold text-white">
+        Presencial
+      </button>
+
+      <button id="btnTel"
+        class="rounded-lg py-3 px-4 text-center text-lg font-semibold text-text-subtle-light dark:text-text-subtle-dark">
+        Telefónica
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<!-- BOTONES DE SERVICIOS -->
+<div class="grid w-full max-w-md grid-cols-2 gap-4 self-center">
+
+  <button onclick="window.location.href='../selección_de_cita_con_doctor_1/code.html'"
+    class="flex aspect-square flex-col items-center justify-center gap-2 rounded-3xl bg-card-light p-4 text-center text-lg font-semibold shadow-sm transition-transform duration-200 ease-in-out hover:scale-[1.02] dark:bg-card-dark sm:gap-4 sm:p-5 sm:text-xl">
+    <span class="material-symbols-outlined text-5xl text-primary">medical_services</span>
+    <span>Cita Médica</span>
+  </button>
+
+  <button onclick="window.location.href='../selección_cita_enfermería/code.html'"
+    class="flex aspect-square flex-col items-center justify-center gap-2 rounded-3xl bg-card-light p-4 text-center text-lg font-semibold shadow-sm transition-transform duration-200 ease-in-out hover:scale-[1.02] dark:bg-card-dark sm:gap-4 sm:p-5 sm:text-xl">
+    <span class="material-symbols-outlined text-5xl text-primary">bloodtype</span>
+    <span>Cita Enfermería</span>
+  </button>
+
+  <button onclick="window.location.href='../selección_cita_vacunación/code.html'"
+    class="flex aspect-square flex-col items-center justify-center gap-2 rounded-3xl bg-card-light p-4 text-center text-lg font-semibold shadow-sm transition-transform duration-200 ease-in-out hover:scale-[1.02] dark:bg-card-dark sm:gap-4 sm:p-5 sm:text-xl">
+    <span class="material-symbols-outlined text-5xl text-primary">vaccines</span>
+    <span>Vacunación</span>
+  </button>
+
+  <button onclick="window.location.href='../selección_cita_odontología/code.html'"
+    class="flex aspect-square flex-col items-center justify-center gap-2 rounded-3xl bg-card-light p-4 text-center text-lg font-semibold shadow-sm transition-transform duration-200 ease-in-out hover:scale-[1.02] dark:bg-card-dark sm:gap-4 sm:p-5 sm:text-xl">
+    <span class="material-symbols-outlined text-5xl text-primary">dentistry</span>
+    <span>Odontología</span>
+  </button>
+
+  <div class="col-span-2 flex justify-center">
+    <button onclick="window.location.href='../selección_cita_trabajo_social/code.html'"
+      class="flex w-1/2 aspect-square flex-col items-center justify-center gap-2 rounded-3xl bg-card-light p-4 text-center text-lg font-semibold shadow-sm transition-transform duration-200 ease-in-out hover:scale-[1.02] dark:bg-card-dark sm:gap-4 sm:p-5 sm:text-xl">
+      <span class="material-symbols-outlined text-5xl text-primary">groups</span>
+      <span>Trabajo Social</span>
+    </button>
+  </div>
+
+</div>
+</main>
+</div>
+
+<!-- SCRIPT SELECTOR -->
+<script>
+const btnTel = document.getElementById("btnTel");
+const btnPres = document.getElementById("btnPres");
+
+function activar(botonActivo, botonInactivo) {
+  botonActivo.classList.add("bg-primary", "text-white");
+  botonActivo.classList.remove("text-text-subtle-light", "dark:text-text-subtle-dark");
+
+  botonInactivo.classList.remove("bg-primary", "text-white");
+  botonInactivo.classList.add("text-text-subtle-light", "dark:text-text-subtle-dark");
+}
+
+btnTel.addEventListener("click", () => activar(btnTel, btnPres));
+btnPres.addEventListener("click", () => activar(btnPres, btnTel));
+</script>
+
+<script src="../shared/settings.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalles del Medicamento</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    body {
+      font-family: 'Lexend', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Lexend"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    html,
+    body {
+      height: 100%;
+    }
+    body {
+      min-height: 100dvh;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-full min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<header class="flex items-center bg-background-light dark:bg-background-dark p-3 justify-between sticky top-0 z-10 border-b border-slate-200 dark:border-white/10">
+<button onclick="window.location.href='../historial_médico_2/code.html'" 
+        class="text-gray-800 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-500/10 active:bg-gray-500/20">
+  <span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-slate-900 dark:text-white text-base font-semibold leading-tight tracking-[-0.015em] flex-1 text-center">Detalles del Medicamento</h1>
+<div class="w-9"></div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<div class="p-4 flex flex-col items-center">
+<div class="flex size-24 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+<span class="material-symbols-outlined !text-6xl">ventilator</span>
+</div>
+<h2 class="text-3xl font-bold text-center">Ventolin</h2>
+<p class="text-lg text-slate-500 dark:text-slate-400 mt-1 text-center">(Salbutamol) Inhalador</p>
+<p class="text-lg text-slate-600 dark:text-slate-300 mt-2 font-medium">100 mcg/pulsación</p>
+</div>
+<div class="px-4 pb-6">
+<div class="flex flex-col gap-4">
+<div class="rounded-xl bg-white dark:bg-slate-800/50 p-4 shadow-sm">
+<h3 class="text-lg font-semibold mb-3">Información General</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-xl text-slate-500 dark:text-slate-400 mt-0.5">update</span>
+<div>
+<p class="font-medium text-slate-800 dark:text-slate-200">Frecuencia</p>
+<p class="text-slate-600 dark:text-slate-300">Según necesidad, hasta 4 veces al día</p>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-yellow-50 dark:bg-yellow-900/40 p-4 shadow-sm border border-yellow-200 dark:border-yellow-800/50">
+<h3 class="text-lg font-semibold mb-3 text-yellow-800 dark:text-yellow-200">Indicaciones Especiales</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-xl text-yellow-600 dark:text-yellow-400 mt-0.5">help</span>
+<p class="text-yellow-700 dark:text-yellow-300">Modo de uso: Solo para inhalación oral. Agitar antes de usar.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-xl text-yellow-600 dark:text-yellow-400 mt-0.5">emergency</span>
+<p class="text-yellow-700 dark:text-yellow-300">Alivio rápido: Usar para aliviar síntomas de asma o EPOC.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-xl text-yellow-600 dark:text-yellow-400 mt-0.5">error</span>
+<p class="text-yellow-700 dark:text-yellow-300">Sobredosis: No exceder la dosis recomendada sin consejo médico.</p>
+</li>
+</ul>
+</div>
+<div class="rounded-xl bg-white dark:bg-slate-800/50 p-4 shadow-sm">
+<h3 class="text-lg font-semibold mb-3">Efectos Secundarios Comunes</h3>
+<ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300">
+<li>Temblor</li>
+<li>Dolor de cabeza</li>
+<li>Taquicardia leve</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script src="../shared/settings.js"></script>
+</body></html>

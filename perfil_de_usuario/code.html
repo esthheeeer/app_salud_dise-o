@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mi Perfil - Salud Madrid</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#135bec",
+              "background-light": "#f6f6f8",
+              "background-dark": "#101622",
+              "brand-blue": "#00A3E0",
+              "brand-green": "#4CAF50",
+              "text-light": "#333333",
+              "text-dark": "#F8F9FA",
+              "surface-light": "#FFFFFF",
+              "surface-dark": "#18202D",
+              "border-light": "#D3D3D3",
+              "border-dark": "#2A3445",
+            },
+            fontFamily: {
+              "display": ["Lexend", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<!-- Top App Bar -->
+<header class="flex items-center p-4 sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+
+<button 
+  onclick="window.location.href='../salud_madrid_home/code.html'"
+  class="text-text-light dark:text-text-dark flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors pointer-events-auto relative z-20"
+>
+  <span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+
+<h1 
+  class="text-text-light dark:text-text-dark text-xl font-bold leading-tight tracking-tight flex-1 text-center -ml-10 pointer-events-none"
+>
+  Mi Perfil
+</h1>
+
+</header>
+
+<main class="flex flex-1 flex-col p-4 pb-8 @container">
+<!-- Profile Header -->
+<div class="flex w-full flex-col gap-4 items-center mb-8">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-32 w-32 border-4 border-brand-blue" data-alt="User profile picture of Elena García" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUHISiYEdQwNaYfWpqJ2iMzpzXmPw05vA8PvyiXtyBv4FdUFUiThKXoQNSglpY_7RjjbNay4_amta0KOIp6jsthqvpO0bVyPJI5fmYh29ZWuBpdav2l30eNtlC70Pk6C52t6On2faGm2o9JKBl4QbKmIUBB0WvnrjJKzizsqSkKL2k3ipc1a8bs3Ri-c_hXa6kwlxsh7p16heiD0-f4Pfk-TnNTus2byFmb6LQy3yfKlhGHy_sYN6bQ0fjPbyCHT7gaYdgf5iUU1O9");'></div>
+<button onclick="window.location.href='../creación_de_perfil/code.html'" class="absolute bottom-0 right-0 flex items-center justify-center size-9 bg-brand-blue text-white rounded-full border-2 border-background-light dark:border-background-dark hover:bg-blue-600 transition-colors">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+<p class="text-text-light dark:text-text-dark text-2xl font-bold leading-tight tracking-tight text-center">Elena García Rodríguez</p>
+</div>
+<!-- Personal Information Section -->
+<div class="flex flex-col gap-4 mb-10">
+<h2 class="text-text-light/80 dark:text-text-dark/80 text-lg font-semibold leading-tight tracking-tight px-2">Información Personal</h2>
+<div class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm overflow-hidden">
+<div class="flex items-center gap-4 p-4 min-h-[72px] border-b border-border-light dark:border-border-dark">
+<div class="text-brand-blue flex items-center justify-center rounded-lg bg-brand-blue/10 shrink-0 size-12">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal line-clamp-1">CIPA</p>
+<p class="text-text-light/70 dark:text-text-dark/70 text-sm font-normal leading-normal line-clamp-2">1234567890ABC</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 min-h-[72px] border-b border-border-light dark:border-border-dark">
+<div class="text-brand-blue flex items-center justify-center rounded-lg bg-brand-blue/10 shrink-0 size-12">
+<span class="material-symbols-outlined">cake</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal line-clamp-1">Fecha de Nacimiento</p>
+<p class="text-text-light/70 dark:text-text-dark/70 text-sm font-normal leading-normal line-clamp-2">15 / 05 / 1985</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 min-h-[72px] border-b border-border-light dark:border-border-dark">
+<div class="text-brand-blue flex items-center justify-center rounded-lg bg-brand-blue/10 shrink-0 size-12">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal line-clamp-1">Teléfono</p>
+<p class="text-text-light/70 dark:text-text-dark/70 text-sm font-normal leading-normal line-clamp-2">+34 6** *** *21</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 min-h-[72px]">
+<div class="text-brand-blue flex items-center justify-center rounded-lg bg-brand-blue/10 shrink-0 size-12">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal line-clamp-1">Correo Electrónico</p>
+<p class="text-text-light/70 dark:text-text-dark/70 text-sm font-normal leading-normal line-clamp-2">e.garcia.r@email.com</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Account Actions Section -->
+<div class="flex flex-col gap-4">
+<h2 class="text-text-light/80 dark:text-text-dark/80 text-lg font-semibold leading-tight tracking-tight px-2">Acciones de la Cuenta</h2>
+<div class="flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm overflow-hidden">
+<button onclick="window.location.href='../creación_de_perfil/code.html'" class="flex items-center gap-4 p-4 min-h-[72px] text-left w-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors border-b border-border-light dark:border-border-dark">
+<div class="text-brand-blue flex items-center justify-center shrink-0 size-12">
+<span class="material-symbols-outlined">edit</span>
+</div>
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal flex-1">Editar Perfil</p>
+<span class="material-symbols-outlined text-text-light/50 dark:text-text-dark/50">chevron_right</span>
+</button>
+<button onclick="window.location.href='../recuperar_contraseña/code.html'" class="flex items-center gap-4 p-4 min-h-[72px] text-left w-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors border-b border-border-light dark:border-border-dark">
+<div class="text-brand-blue flex items-center justify-center shrink-0 size-12">
+<span class="material-symbols-outlined">lock_reset</span>
+</div>
+<p class="text-text-light dark:text-text-dark text-base font-medium leading-normal flex-1">Cambiar Contraseña</p>
+<span class="material-symbols-outlined text-text-light/50 dark:text-text-dark/50">chevron_right</span>
+</button>
+<button onclick="window.location.href='../inicio/cierre_de_sesión/code.html'" class="flex items-center gap-4 p-4 min-h-[72px] text-left w-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<div class="text-red-500 flex items-center justify-center shrink-0 size-12">
+<span class="material-symbols-outlined">logout</span>
+</div>
+<p class="text-red-500 text-base font-medium leading-normal flex-1">Cerrar Sesión</p>
+</button>
+</div>
+</div>
+</main>
+</div>
+
+<script src="../shared/settings.js"></script>
+
+</body></html>

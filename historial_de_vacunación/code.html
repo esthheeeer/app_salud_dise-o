@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Historial de Vacunación</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Lexend", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<header class="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 dark:bg-background-dark/80 px-4 py-3 backdrop-blur-sm">
+<button onclick="window.location.href='../historial_médico_1/code.html'" class="text-gray-800 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-500/10 active:bg-gray-500/20">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="flex-1 text-center text-xl font-bold text-slate-900 dark:text-white">Vacunación</h1>
+<div class="size-10"></div>
+</header>
+<main class="flex-1 px-4 py-4">
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm dark:bg-slate-800/50">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">vaccines</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-medium text-slate-900 dark:text-white">COVID-19 Refuerzo</p>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Administrada: 20/11/2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm dark:bg-slate-800/50">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">vaccines</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-medium text-slate-900 dark:text-white">Gripe Estacional</p>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Administrada: 15/10/2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm dark:bg-slate-800/50">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">vaccines</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-medium text-slate-900 dark:text-white">Tétanos-Difteria (Td)</p>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Administrada: 05/06/2022</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm dark:bg-slate-800/50">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">vaccines</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-medium text-slate-900 dark:text-white">COVID-19 2ª Dosis</p>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Administrada: 12/07/2021</p>
+</div>
+</div>
+<div class="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm dark:bg-slate-800/50">
+<div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">vaccines</span>
+</div>
+<div class="flex flex-1 flex-col justify-center">
+<p class="text-base font-medium text-slate-900 dark:text-white">COVID-19 1ª Dosis</p>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">Administrada: 21/06/2021</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script src="../shared/settings.js"></script>
+</body></html>

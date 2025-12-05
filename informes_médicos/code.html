@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Informes Médicos</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+          },
+          fontFamily: {
+            "display": ["Lexend"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+  <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <header
+      class="sticky top-0 z-10 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm p-4 pb-2 justify-between border-b border-gray-200/50 dark:border-gray-800/50">
+      <button onclick="window.location.href='../historial_médico_1/code.html'"
+        class="text-gray-800 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-500/10 active:bg-gray-500/20">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <h1 class="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Informes Médicos</h1>
+      <div class="flex size-12 shrink-0 items-center"></div>
+    </header>
+    <main class="flex-1 pb-6">
+      <div class="px-4 py-3">
+        <label class="flex flex-col min-w-40 h-12 w-full">
+          <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+            <div
+              class="text-gray-500 dark:text-gray-400 flex border-none bg-gray-200/60 dark:bg-gray-800/60 items-center justify-center pl-4 rounded-l-xl border-r-0">
+              <span class="material-symbols-outlined">search</span>
+            </div>
+            <input
+              class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-gray-800 dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary focus:ring-inset border-none bg-gray-200/60 dark:bg-gray-800/60 h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+              placeholder="Buscar informes" value="" />
+          </div>
+        </label>
+      </div>
+      <div class="flex gap-3 px-4 py-1 overflow-x-auto">
+        <button id="sort-date-btn"
+          class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-200/60 dark:bg-gray-800/60 pl-4 pr-3 text-gray-800 dark:text-gray-200">
+          <p class="text-sm font-medium leading-normal">Ordenar por fecha</p>
+          <span class="material-symbols-outlined text-xl">expand_more</span>
+        </button>
+
+        <button id="specialty-btn"
+          class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-200/60 dark:bg-gray-800/60 pl-4 pr-3 text-gray-800 dark:text-gray-200">
+          <p class="text-sm font-medium leading-normal">Especialidad</p>
+          <span class="material-symbols-outlined text-xl">expand_more</span>
+        </button>
+
+        <button id="year-btn"
+          class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-200/60 dark:bg-gray-800/60 pl-4 pr-3 text-gray-800 dark:text-gray-200">
+          <p class="text-sm font-medium leading-normal">Año</p>
+          <span class="material-symbols-outlined text-xl">expand_more</span>
+        </button>
+      </div>
+
+      <div class="flex flex-col pt-4 px-4 gap-4">
+        <div class="flex flex-col gap-4 p-4 rounded-xl bg-gray-200/40 dark:bg-gray-800/40">
+          <div class="flex gap-4 justify-between items-start">
+            <div class="flex items-center gap-4">
+              <div
+                class="text-gray-800 dark:text-gray-200 flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12">
+                <span class="material-symbols-outlined text-primary">description</span>
+              </div>
+              <div class="flex flex-1 flex-col justify-center">
+
+                <p class="text-base font-medium leading-normal text-gray-900 dark:text-white">Informe de Cardiología</p>
+                <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">25 OCT 2023</p>
+                <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">Dr. García Pérez</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="flex items-center justify-center w-full h-11 gap-2 rounded-lg bg-blue-500 text-white font-semibold text-sm transition-colors hover:bg-blue-600">
+            <span class="material-symbols-outlined text-xl">download</span>
+            <span>Descargar informe</span>
+          </button>
+        </div>
+        <div class="flex flex-col gap-4 p-4 rounded-xl bg-gray-200/40 dark:bg-gray-800/40">
+          <div class="flex gap-4 justify-between items-start">
+            <div class="flex items-center gap-4">
+              <div
+                class="text-gray-800 dark:text-gray-200 flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12">
+                <span class="material-symbols-outlined text-primary">description</span>
+              </div>
+              <div class="flex flex-1 flex-col justify-center">
+                <p class="text-base font-medium leading-normal text-gray-900 dark:text-white">Resultados Analítica</p>
+                <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">12 SEP 2023</p>
+                <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">Hospital La Paz</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="flex items-center justify-center w-full h-11 gap-2 rounded-lg bg-blue-500 text-white font-semibold text-sm transition-colors hover:bg-blue-600">
+            <span class="material-symbols-outlined text-xl">download</span>
+            <span>Descargar informe</span>
+          </button>
+        </div>
+        <div class="flex flex-col gap-4 p-4 rounded-xl bg-gray-200/40 dark:bg-gray-800/40">
+          <div class="flex gap-4 justify-between items-start">
+            <div class="flex items-center gap-4">
+              <div
+                class="text-gray-800 dark:text-gray-200 flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12">
+                <span class="material-symbols-outlined text-primary">description</span>
+              </div>
+              <div class="flex flex-1 flex-col justify-center">
+                <p class="text-base font-medium leading-normal text-gray-900 dark:text-white">Informe de Alta: Urgencias
+                </p>
+                <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">15 JUL 2022</p>
+                <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">Hospital Gregorio Marañón
+                </p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="flex items-center justify-center w-full h-11 gap-2 rounded-lg bg-blue-500 text-white font-semibold text-sm transition-colors hover:bg-blue-600">
+            <span class="material-symbols-outlined text-xl">download</span>
+            <span>Descargar informe</span>
+          </button>
+        </div>
+        <div class="flex flex-col gap-4 p-4 rounded-xl bg-gray-200/40 dark:bg-gray-800/40">
+          <div class="flex gap-4 justify-between items-start">
+            <div class="flex items-center gap-4">
+              <div
+                class="text-gray-800 dark:text-gray-200 flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12">
+                <span class="material-symbols-outlined text-primary">description</span>
+              </div>
+              <div class="flex flex-1 flex-col justify-center">
+                <p class="text-base font-medium leading-normal text-gray-900 dark:text-white">Informe de Dermatología</p>
+                <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">03 MAY 2021</p>
+                <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">Dra. Martínez Sánchez</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="flex items-center justify-center w-full h-11 gap-2 rounded-lg bg-blue-500 text-white font-semibold text-sm transition-colors hover:bg-blue-600">
+            <span class="material-symbols-outlined text-xl">download</span>
+            <span>Descargar informe</span>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- Añade esto justo antes de cerrar </body> -->
+  <script>
+    // Referencias a elementos
+    const searchInput = document.querySelector('input[placeholder="Buscar informes"]');
+    const informeCards = document.querySelectorAll('main .flex.flex-col.pt-4 > div');
+    const sortBtn = document.getElementById('sort-date-btn');
+    const specialtyBtn = document.getElementById('specialty-btn');
+    const yearBtn = document.getElementById('year-btn');
+
+    // Datos de cada tarjeta
+    const cardsData = Array.from(informeCards).map(card => {
+      return {
+        element: card,
+        title: card.querySelector('p.text-base')?.textContent.trim() || '',
+        date: new Date(card.querySelector('p.text-sm')?.textContent.trim() || 0),
+        specialty: card.querySelector('p.text-sm + p')?.textContent.trim().toLowerCase() || '',
+        year: (card.querySelector('p.text-sm')?.textContent.trim().split(' ')[2]) || ''
+      };
+    });
+
+    let currentSpecialty = '';
+    let currentYear = '';
+    let searchQuery = '';
+    let sortAsc = false; // por defecto: más reciente primero
+
+    // Función para renderizar según filtros
+    function renderCards() {
+      let filtered = cardsData.filter(card => {
+        const matchesSearch = card.title.toLowerCase().includes(searchQuery.toLowerCase());
+
+        // Especialidad: Mostrar todos o si el título contiene la especialidad
+        const matchesSpecialty = currentSpecialty === '' || card.title.toLowerCase().includes(currentSpecialty.toLowerCase());
+
+        // Año: Mostrar todos o si coincide con el año
+        const matchesYear = currentYear === '' || card.year === currentYear;
+
+        return matchesSearch && matchesSpecialty && matchesYear;
+      });
+
+      filtered.sort((a, b) => sortAsc ? a.date - b.date : b.date - a.date);
+
+      const parent = document.querySelector('main .flex.flex-col.pt-4');
+      parent.innerHTML = '';
+      filtered.forEach(card => parent.appendChild(card.element));
+    }
+
+    // Filtrado por búsqueda
+    searchInput.addEventListener('input', () => {
+      searchQuery = searchInput.value.trim();
+      renderCards();
+    });
+
+    // Ordenar por fecha
+    sortBtn.addEventListener('click', () => {
+      sortAsc = !sortAsc;
+      renderCards();
+    });
+
+    // Crear dropdown genérico
+    function createDropdown(button, options, onSelect) {
+      const dropdown = document.createElement('div');
+      dropdown.className = 'absolute bg-white dark:bg-slate-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow mt-1 z-50';
+      dropdown.style.display = 'none';
+      dropdown.style.minWidth = button.offsetWidth + 'px';
+
+      // Opción Mostrar todos
+      const allOption = document.createElement('div');
+      allOption.className = 'px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer font-medium';
+      allOption.textContent = 'Mostrar todos';
+      allOption.addEventListener('click', () => {
+        button.querySelector('p').textContent = 'Mostrar todos';
+        dropdown.style.display = 'none';
+        onSelect('');
+      });
+      dropdown.appendChild(allOption);
+
+      // Opciones normales
+      options.forEach(opt => {
+        const item = document.createElement('div');
+        item.className = 'px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer';
+        item.textContent = opt;
+        item.addEventListener('click', () => {
+          button.querySelector('p').textContent = opt;
+          dropdown.style.display = 'none';
+          onSelect(opt);
+        });
+        dropdown.appendChild(item);
+      });
+
+      button.parentElement.appendChild(dropdown);
+
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('.absolute.bg-white').forEach(d => { if (d !== dropdown) d.style.display = 'none'; });
+        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+      });
+
+      document.addEventListener('click', () => dropdown.style.display = 'none');
+    }
+
+    // Especialidad
+    createDropdown(specialtyBtn, ['Cardiología', 'Dermatología', 'Urgencias', 'Analítica'], (opt) => {
+      currentSpecialty = opt.toLowerCase();
+      renderCards();
+    });
+
+    // Año
+    createDropdown(yearBtn, ['2023', '2022', '2021', '2020'], (opt) => {
+      currentYear = opt;
+      renderCards();
+    });
+  </script>
+
+
+<script src="../shared/settings.js"></script>
+</body>
+
+</html>

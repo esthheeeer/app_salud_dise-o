@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Centro de Ayuda - Salud Madrid</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400,FILL@0&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.25rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 dark:bg-background-dark/80 px-4 py-3 backdrop-blur-sm">
+
+
+
+<div class="size-10 shrink-0"></div>
+<button onclick="window.location.href='../inicio/cierre_de_sesión/code.html'" 
+        class="text-gray-800 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-500/10 active:bg-gray-500/20">
+  <span class="material-symbols-outlined">arrow_back</span>
+</button>
+
+
+<h1 class="flex-1 text-center text-xl font-bold leading-tight tracking-[-0.015em] text-slate-900 dark:text-white">Centro de Ayuda</h1>
+<div class="size-10 shrink-0"></div>
+</header>
+<main class="flex-grow px-4 pb-28">
+<div class="relative py-4">
+<label class="sr-only" for="search-help">¿En qué podemos ayudarte?</label>
+<input class="form-input h-14 w-full rounded-full border-2 border-slate-300 bg-white px-6 text-lg font-normal leading-normal text-slate-900 placeholder:text-slate-500 focus:border-primary focus:outline-0 focus:ring-4 focus:ring-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400 dark:focus:border-primary/80" id="search-help" placeholder="¿En qué podemos ayudarte?" type="search" value=""/>
+</div>
+<section class="mt-4">
+<h2 class="px-2 pb-3 text-xl font-bold leading-tight tracking-[-0.015em] text-slate-900 dark:text-white">Gestión de Citas</h2>
+<div class="flex flex-col gap-2">
+<details class="group rounded-xl bg-white p-5 dark:bg-slate-800/50" open="">
+<summary class="flex list-none cursor-pointer items-center justify-between gap-4">
+<p class="text-lg font-medium leading-normal text-slate-800 dark:text-white">¿Cómo puedo pedir una nueva cita?</p>
+</summary>
+<p class="pt-4 text-base font-normal leading-relaxed text-slate-600 dark:text-slate-300">Para solicitar una nueva cita, vaya a la sección 'Citas' en el menú principal, seleccione 'Nueva Cita', elija la especialidad y el profesional, y finalmente seleccione la fecha y hora que mejor le convenga.</p>
+</details>
+<details class="group rounded-xl bg-white p-5 dark:bg-slate-800/50">
+<summary class="flex list-none cursor-pointer items-center justify-between gap-4">
+<p class="text-lg font-medium leading-normal text-slate-800 dark:text-white">¿Es posible modificar o cancelar una cita existente?</p>
+</summary>
+<p class="pt-4 text-base font-normal leading-relaxed text-slate-600 dark:text-slate-300">Sí, puede modificar o cancelar sus citas desde la sección 'Mis Citas'. Seleccione la cita que desea cambiar y siga las instrucciones para reprogramarla o cancelarla.</p>
+</details>
+<details class="group rounded-xl bg-white p-5 dark:bg-slate-800/50">
+<summary class="flex list-none cursor-pointer items-center justify-between gap-4">
+<p class="text-lg font-medium leading-normal text-slate-800 dark:text-white">¿Recibiré un recordatorio de mi cita?</p>
+</summary>
+<p class="pt-4 text-base font-normal leading-relaxed text-slate-600 dark:text-slate-300">Sí, la aplicación enviará una notificación a su dispositivo 24 horas antes de su cita programada, siempre que tenga las notificaciones activadas.</p>
+</details>
+</div>
+</section>
+<section class="mt-6">
+<h2 class="px-2 pb-3 text-xl font-bold leading-tight tracking-[-0.015em] text-slate-900 dark:text-white">Tarjeta Sanitaria</h2>
+<div class="flex flex-col gap-2">
+<details class="group rounded-xl bg-white p-5 dark:bg-slate-800/50">
+<summary class="flex list-none cursor-pointer items-center justify-between gap-4">
+<p class="text-lg font-medium leading-normal text-slate-800 dark:text-white">¿Dónde encuentro mi tarjeta sanitaria digital?</p>
+</summary>
+<p class="pt-4 text-base font-normal leading-relaxed text-slate-600 dark:text-slate-300">Su tarjeta sanitaria digital está disponible en la pantalla de inicio de la aplicación. Puede tocar sobre ella para verla en tamaño completo y acceder a su código QR.</p>
+</details>
+<details class="group rounded-xl bg-white p-5 dark:bg-slate-800/50">
+<summary class="flex list-none cursor-pointer items-center justify-between gap-4">
+<p class="text-lg font-medium leading-normal text-slate-800 dark:text-white">¿Cómo actualizo mis datos personales?</p>
+</summary>
+<p class="pt-4 text-base font-normal leading-relaxed text-slate-600 dark:text-slate-300">Para actualizar sus datos de contacto como teléfono o email, diríjase a 'Mi Perfil'. Para cambios en otros datos personales, deberá contactar con su centro de salud.</p>
+</details>
+</div>
+</section>
+<section class="mt-6">
+<h2 class="px-2 pb-3 text-xl font-bold leading-tight tracking-[-0.015em] text-slate-900 dark:text-white">Historial Clínico</h2>
+<div class="flex flex-col gap-2">
+<details class="group rounded-xl bg-white p-5 dark:bg-slate-800/50">
+<summary class="flex list-none cursor-pointer items-center justify-between gap-4">
+<p class="text-lg font-medium leading-normal text-slate-800 dark:text-white">¿Cómo accedo a mis informes y resultados?</p>
+</summary>
+<p class="pt-4 text-base font-normal leading-relaxed text-slate-600 dark:text-slate-300">Puede consultar sus informes de alta, resultados de analíticas y pruebas de imagen en la sección 'Historial Clínico'. Los documentos están organizados por fecha y especialidad.</p>
+</details>
+</div>
+</section>
+</main>
+<footer class="fixed bottom-0 z-10 w-full bg-background-light/80 p-4 pt-3 backdrop-blur-sm dark:bg-background-dark/80">
+<button onclick="window.location.href='../contactar_soporte/code.html'" class="flex h-16 w-full items-center justify-center gap-3 rounded-full bg-primary px-6 text-xl font-bold text-white shadow-lg shadow-primary/30 transition-colors hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Contactar Soporte</button>
+</footer>
+</div>
+
+<script src="../shared/settings.js"></script>
+
+</body></html>

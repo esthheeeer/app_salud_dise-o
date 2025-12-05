@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Citas - Salud Madrid</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#135bec",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622",
+            "accent-green": "#4CAF50",
+            "accent-red": "#D32F2F",
+            "text-light": "#212121",
+            "text-dark": "#F5F5F5",
+            "card-light": "#ffffff",
+            "card-dark": "#1c1f27",
+            "subtle-light": "#e0e0e0",
+            "subtle-dark": "#282e39",
+            "text-subtle-light": "#616161",
+            "text-subtle-dark": "#9da6b9"
+          },
+          fontFamily: {
+            "display": ["Lexend", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: 100dvh;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen flex-col">
+<header class="sticky top-0 z-10 flex items-center justify-between bg-background-light dark:bg-background-dark p-4">
+<a aria-label="Volver atrás" 
+   href="../salud_madrid_home/code.html"
+   class="text-slate-800 dark:text-white flex size-12 items-center justify-center rounded-full hover:bg-slate-500/10 transition-colors">
+   <span class="material-symbols-outlined text-2xl">arrow_back</span>
+</a>
+<h1 class="flex-1 text-center text-xl font-bold leading-tight tracking-[-0.015em]">Citas</h1>
+<div class="size-12"></div>
+</header>
+<main class="flex flex-1 flex-col items-center justify-center p-6">
+<div class="flex w-full max-w-sm flex-col items-center gap-6">
+<button onclick="window.location.href='../gestión_de_citas_4/code.html'" class="flex w-full flex-col items-center justify-center gap-4 rounded-xl bg-card-light p-8 text-center shadow-sm transition-transform duration-200 ease-in-out hover:scale-[1.02] dark:bg-card-dark">
+<div class="flex size-16 items-center justify-center rounded-full bg-primary/10">
+<span class="material-symbols-outlined text-4xl text-primary">add_circle</span>
+</div>
+<span class="text-xl font-semibold">Pedir Nueva Cita</span>
+</button>
+<button onclick="window.location.href='../gestión_de_citas_1/code.html'" class="flex w-full flex-col items-center justify-center gap-4 rounded-xl bg-card-light p-8 text-center shadow-sm transition-transform duration-200 ease-in-out hover:scale-[1.02] dark:bg-card-dark">
+<div class="flex size-16 items-center justify-center rounded-full bg-primary/10">
+<span class="material-symbols-outlined text-4xl text-primary">event_available</span>
+</div>
+<span class="text-xl font-semibold">Gestionar Citas Existentes</span>
+</button>
+</div>
+</main>
+</div>
+
+<script src="../shared/settings.js"></script>
+
+</body></html>
