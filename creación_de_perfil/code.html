@@ -133,6 +133,25 @@ class="form-input w-full rounded-lg h-14 p-[15px] border border-slate-300 dark:b
 <p id="error-email" class="error-text text-red-500"></p>
 </div>
 
+<!-- Contraseña -->
+<div class="flex flex-col">
+<label class="text-slate-800 dark:text-white text-base font-medium leading-normal pb-2" for="password">Contraseña</label>
+<input id="password" type="password" placeholder="Escribe tu contraseña"
+class="form-input w-full rounded-lg h-14 p-[15px] border border-slate-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27]"/>
+<p id="error-password" class="error-text text-red-500"></p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+Debe tener al menos 8 caracteres, una mayúscula y un número.
+</p>
+</div>
+
+<!-- Repetir Contraseña -->
+<div class="flex flex-col">
+<label class="text-slate-800 dark:text-white text-base font-medium leading-normal pb-2" for="password2">Repetir Contraseña</label>
+<input id="password2" type="password" placeholder="Repite tu contraseña"
+class="form-input w-full rounded-lg h-14 p-[15px] border border-slate-300 dark:border-[#3b4354] bg-white dark:bg-[#1c1f27]"/>
+<p id="error-password2" class="error-text text-red-500"></p>
+</div>
+
 </div>
 
 <div class="flex-grow"></div>
@@ -155,16 +174,19 @@ y
 </main>
 </div>
 
-<!-- VALIDACIÓN: solo DNI y EMAIL muestran mensajes de error -->
 <script>
-const campos = ["nombre","apellidos","dni","fecha_nacimiento","telefono","email"];
+const campos = ["nombre","apellidos","dni","fecha_nacimiento","telefono","email","password","password2"];
 const boton = document.getElementById("btn-registrarse");
 const inputDNI = document.getElementById("dni");
 const inputEmail = document.getElementById("email");
+const inputPassword = document.getElementById("password");
+const inputPassword2 = document.getElementById("password2");
 const spanErrorDNI = document.getElementById("error-dni");
 const spanErrorEmail = document.getElementById("error-email");
+const spanErrorPass = document.getElementById("error-password");
+const spanErrorPass2 = document.getElementById("error-password2");
 
-/* Función para validar DNI/NIE (incluye X Y Z) */
+/* Función para validar DNI/NIE */
 function validarDNI(dniInput) {
     const dni = dniInput.toUpperCase().replace(/\s+/g,'');
     const regex = /^[XYZ]?\d{5,8}[A-Z]$/;
@@ -178,11 +200,20 @@ function validarDNI(dniInput) {
     return letras[numero % 23] === letra;
 }
 
-/* Función simple para validar email según tus reglas: contiene '@' y termina en '.com' (insensible a mayúsculas) */
+/* Función simple para validar email */
 function validarEmailSimple(email) {
     if (!email) return false;
     const e = email.trim().toLowerCase();
     return e.includes('@') && e.endsWith('.com');
+}
+
+/* Validar contraseña */
+function validarPassword(pass) {
+    if (!pass) return false;
+    const tieneMayus = /[A-Z]/.test(pass);
+    const tieneNumero = /\d/.test(pass);
+    const tiene8 = pass.length >= 8;
+    return tieneMayus && tieneNumero && tiene8;
 }
 
 /* Comprueba si todos los campos están no vacíos */
@@ -193,13 +224,12 @@ function todosLosCamposRellenos() {
     });
 }
 
-/* Lógica principal de validación */
 function comprobarYMostrarErrores() {
     // DNI
     const dniVal = inputDNI.value.trim();
     const dniValido = validarDNI(dniVal);
     if (dniVal === "") {
-        spanErrorDNI.textContent = ""; // si vacío no mostramos error (pero bloqueará botón)
+        spanErrorDNI.textContent = "";
         inputDNI.classList.remove('input-error');
     } else if (!dniValido) {
         spanErrorDNI.textContent = "Formato de DNI/NIE incorrecto.";
@@ -223,31 +253,53 @@ function comprobarYMostrarErrores() {
         inputEmail.classList.remove('input-error');
     }
 
-    // Habilitar botón sólo si todos los campos están rellenos y DNI + email son válidos
-    const habilitar = todosLosCamposRellenos() && validarDNI(document.getElementById('dni').value.trim()) && validarEmailSimple(document.getElementById('email').value.trim());
+    // Contraseña
+    const passVal = inputPassword.value;
+    const passValido = validarPassword(passVal);
+    if (passVal === "") {
+        spanErrorPass.textContent = "";
+        inputPassword.classList.remove('input-error');
+    } else if (!passValido) {
+        spanErrorPass.textContent = "Contraseña no cumple los requisitos.";
+        inputPassword.classList.add('input-error');
+    } else {
+        spanErrorPass.textContent = "";
+        inputPassword.classList.remove('input-error');
+    }
+
+    // Repetir contraseña
+    const pass2Val = inputPassword2.value;
+    if (pass2Val === "") {
+        spanErrorPass2.textContent = "";
+        inputPassword2.classList.remove('input-error');
+    } else if (pass2Val !== passVal) {
+        spanErrorPass2.textContent = "Las contraseñas no coinciden.";
+        inputPassword2.classList.add('input-error');
+    } else {
+        spanErrorPass2.textContent = "";
+        inputPassword2.classList.remove('input-error');
+    }
+
+    // Habilitar botón solo si todo es válido
+    const habilitar = todosLosCamposRellenos() && dniValido && emailValido && passValido && passVal === pass2Val;
     boton.disabled = !habilitar;
 }
 
-/* Añadir listeners */
 campos.forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('input', comprobarYMostrarErrores);
 });
 
-/* Prevención mínima al hacer click (por si hay manipulación) */
 boton.addEventListener('click', (ev) => {
-    // última comprobación
     if (boton.disabled) {
         ev.preventDefault();
         return;
     }
-    // aquí puedes hacer envío o redirección
     window.location.href = "/index.html";
 });
 </script>
 
 <script src="../shared/settings.js"></script>
-
 </body>
 </html>
