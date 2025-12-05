@@ -65,12 +65,12 @@ body {
 
 <header class="flex items-center p-4 pb-2 justify-between sticky top-0 bg-background-light dark:bg-background-dark z-10">
 
-<button 
-  onclick="window.location.href='../index.html'" 
-  class="text-slate-800 dark:text-white flex size-12 shrink-0 items-center justify-center pointer-events-auto relative z-20"
->
+<button type="button"
+  onclick="window.location.href='../index.html'"
+  class="text-slate-800 dark:text-white flex size-12 ...">
   <span class="material-symbols-outlined text-2xl">arrow_back</span>
 </button>
+
 
 <h1 class="text-slate-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center -ml-12 pointer-events-none">
   Crear Nuevo Perfil
@@ -291,13 +291,9 @@ campos.forEach(id => {
     el.addEventListener('input', comprobarYMostrarErrores);
 });
 
-boton.addEventListener('click', (ev) => {
-    if (boton.disabled) {
-        ev.preventDefault();
-        return;
-    }
-    window.location.href = "../index.html";
-});
+<button type="button" onclick="window.location.href='../index.html'"
+ class="text-primary text-base font-medium leading-normal">Cambiar</button>
+
 </script>
 
 <script src="../shared/settings.js"></script>
