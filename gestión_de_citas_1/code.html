@@ -63,7 +63,7 @@
   <div class="flex size-12 shrink-0 items-center justify-end">
     <button id="notifButton" class="flex h-12 items-center justify-center relative">
       <span id="notifIcon" class="material-symbols-outlined text-3xl">notifications</span>
-      <span id="notifBadge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center hidden">3</span>
+      <span id="notifTick" class="material-symbols-outlined text-green-400 text-[14px] absolute -top-1 -right-1">check_circle</span>
     </button>
   </div>
 </div>
@@ -116,13 +116,17 @@
 </div>
 
 <script>
-// =================== NOTIFICACIONES =======================
+// =================== CAMPANA =======================
 const notifBtn = document.getElementById("notifButton");
-const notifBadge = document.getElementById("notifBadge");
+const notifTick = document.getElementById("notifTick");
+notifTick.style.display = "none"; // inicial oculto
 
 notifBtn.addEventListener("click", () => {
-  // ejemplo: al hacer clic ocultamos el badge
-  notifBadge.style.display = "none";
+  if(notifTick.style.display === "none") {
+    notifTick.style.display = "block";
+  } else {
+    notifTick.style.display = "none";
+  }
 });
 
 // =================== CITAS =========================
@@ -182,20 +186,19 @@ function renderCitas(dia, modo) {
 function actualizarDias() {
   const todosLosDias = document.querySelectorAll(".dayItem");
   todosLosDias.forEach(d => {
-    d.classList.remove("bg-primary", "text-white");
-    d.classList.add("bg-subtle-light", "dark:bg-subtle-dark");
-    if (d.dataset.day == diaSeleccionado) {
-      d.classList.add("bg-primary", "text-white");
-      d.classList.remove("bg-subtle-light", "dark:bg-subtle-dark");
+    d.classList.remove("bg-primary","text-white");
+    d.classList.add("bg-subtle-light","dark:bg-subtle-dark");
+    if(d.dataset.day == diaSeleccionado){
+      d.classList.add("bg-primary","text-white");
+      d.classList.remove("bg-subtle-light","dark:bg-subtle-dark");
     }
-    d.addEventListener("click", () => {
+    d.onclick = () => {
       diaSeleccionado = d.dataset.day;
       actualizarDias();
       renderCitas(diaSeleccionado, modoSeleccionado);
-    });
+    }
   });
 }
-
 actualizarDias();
 
 // ================== CAMBIAR ENTRE PROXIMAS / HISTORIAL ==================
@@ -231,7 +234,6 @@ document.getElementById("cancelYes").addEventListener("click", () => {
 
 // Render inicial
 renderCitas(diaSeleccionado, modoSeleccionado);
-
 </script>
 
 <script src="../shared/settings.js"></script>
