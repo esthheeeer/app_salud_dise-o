@@ -2,137 +2,138 @@
 <html class="dark" lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Medicación Activa</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <style type="text/tailwindcss">
-    body { font-family: 'Lexend', sans-serif; }
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  body { font-family: 'Lexend', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
 </style>
 <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#135bec",
-            "background-light": "#f6f6f8",
-            "background-dark": "#101622",
-          },
-          fontFamily: { "display": ["Lexend"] },
-          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#135bec",
+          "background-light": "#f6f6f8",
+          "background-dark": "#101622",
+        },
+        fontFamily: { "display": ["Lexend"] },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
         },
       },
-    }
+    },
+  }
 </script>
 <style>
-    html, body { height: 100%; overflow: hidden; min-height: max(884px, 100dvh); }
+  html, body { height: 100%; overflow: hidden; min-height: max(884px, 100dvh); }
 </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display">
 <div class="relative flex h-full min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 
 <header class="flex items-center bg-background-light dark:bg-background-dark p-3 justify-between sticky top-0 z-10 border-b border-slate-200 dark:border-white/10">
-<button onclick="window.location.href='../historial_médico_1/code.html'" class="text-gray-800 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-500/10 active:bg-gray-500/20">
-<span class="material-symbols-outlined">arrow_back</span>
-</button>
-<h1 class="text-slate-900 dark:text-white text-base font-semibold leading-tight tracking-[-0.015em] flex-1 text-center">Medicación Activa</h1>
-<div class="w-9"></div>
+  <button onclick="window.location.href='../historial_médico_1/code.html'" class="text-gray-800 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-500/10 active:bg-gray-500/20">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </button>
+  <h1 class="text-slate-900 dark:text-white text-base font-semibold leading-tight tracking-[-0.015em] flex-1 text-center">Medicación Activa</h1>
+  <div class="w-9"></div>
 </header>
 
 <main class="flex-1 px-4 py-4 overflow-y-auto">
 
-<!-- Polaramine 2mg -->
-<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-slate-800/50 p-4 shadow-sm mb-4">
+  <!-- Polaramine 2mg -->
+  <div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-slate-800/50 p-4 shadow-sm mb-4">
 
-  <!-- Parte superior clicable -->
-  <div onclick="window.location.href='../historial_médico_3/code.html'" class="flex items-start justify-between gap-3 cursor-pointer">
-    <div class="flex flex-col">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Polaramine 2mg</h2>
-      <p class="text-sm text-slate-500 dark:text-slate-400">1 comprimido</p>
-    </div>
-    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
-      <span class="material-symbols-outlined text-3xl">pill</span>
-    </div>
-  </div>
-
-  <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-    <span class="material-symbols-outlined text-lg">device_reset</span>
-    <p class="text-sm font-medium">Cada 8 horas</p>
-  </div>
-
-  <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-    <span class="material-symbols-outlined text-lg">schedule</span>
-    <p class="text-sm font-medium">Próxima toma: 17:00, 01:00</p>
-  </div>
-
-  <button class="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-base font-semibold text-white add-dose-btn">
-    <span class="material-symbols-outlined">add_circle</span>
-    <span>Añadir toma</span>
-  </button>
-
-  <!-- Recordatorios -->
-  <div class="mt-2 flex flex-col gap-3 border-t border-slate-200 dark:border-white/10 pt-3">
-    <div class="flex items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-lg text-slate-600 dark:text-slate-300">notifications_active</span>
-        <label class="text-base font-medium text-slate-800 dark:text-slate-100">Recordatorios</label>
+    <!-- Botón más información -->
+    <button onclick="window.location.href='../historial_médico_3/code.html'" class="flex items-center justify-between gap-3 w-full rounded-lg border border-slate-300 dark:border-slate-600 p-3 hover:bg-slate-100 dark:hover:bg-slate-700">
+      <div class="flex flex-col text-left">
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Polaramine 2mg</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">1 comprimido</p>
       </div>
-      <button class="reminder-toggle relative inline-flex h-7 w-12 flex-shrink-0 cursor-pointer rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-200 ease-in-out" type="button">
-        <span class="pointer-events-none absolute left-0 inline-block h-6 w-6 transform rounded-full bg-white shadow ring-0 transition-transform duration-200 ease-in-out"></span>
-      </button>
+      <span class="text-primary font-semibold">Más información</span>
+    </button>
+
+    <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+      <span class="material-symbols-outlined text-lg">device_reset</span>
+      <p class="text-sm font-medium">Cada 8 horas</p>
     </div>
 
-    <!-- Opciones solo visibles si recordatorio activo -->
-    <div class="reminder-options hidden flex-col gap-2 pl-8">
-      <div class="flex items-center justify-between">
-        <p class="text-sm text-slate-500 dark:text-slate-400">Avisar</p>
-        <select class="rounded-md bg-slate-100 dark:bg-slate-700 px-2 py-1 text-sm text-slate-700 dark:text-slate-200">
-          <option>5 min antes</option>
-          <option>10 min antes</option>
-          <option>15 min antes</option>
-          <option>30 min antes</option>
-          <option>60 min antes</option>
-        </select>
+    <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+      <span class="material-symbols-outlined text-lg">schedule</span>
+      <p class="text-sm font-medium">Próxima toma: 17:00, 01:00</p>
+    </div>
+
+    <button class="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-base font-semibold text-white add-dose-btn">
+      <span class="material-symbols-outlined">add_circle</span>
+      <span>Añadir toma</span>
+    </button>
+
+    <!-- Recordatorios -->
+    <div class="mt-2 flex flex-col gap-3 border-t border-slate-200 dark:border-white/10 pt-3">
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-lg text-slate-600 dark:text-slate-300">notifications_active</span>
+          <label class="text-base font-medium text-slate-800 dark:text-slate-100">Recordatorios</label>
+        </div>
+        <button class="reminder-toggle relative inline-flex h-7 w-12 flex-shrink-0 cursor-pointer rounded-full bg-gray-300 dark:bg-gray-600 transition-colors duration-200 ease-in-out" type="button">
+          <span class="pointer-events-none absolute left-0 inline-block h-6 w-6 transform rounded-full bg-white shadow ring-0 transition-transform duration-200 ease-in-out"></span>
+        </button>
       </div>
-      <div class="flex items-center justify-between">
-        <p class="text-sm text-slate-500 dark:text-slate-400">Sonido</p>
-        <select class="rounded-md bg-slate-100 dark:bg-slate-700 px-2 py-1 text-sm text-slate-700 dark:text-slate-200">
-          <option>Predeterminado</option>
-          <option>Campanas</option>
-          <option>Pájaros</option>
-          <option>Alerta</option>
-        </select>
+
+      <!-- Opciones -->
+      <div class="reminder-options hidden flex-col gap-2 pl-8">
+        <div class="flex items-center justify-between">
+          <p class="text-sm text-slate-500 dark:text-slate-400">Avisar</p>
+          <select class="rounded-md bg-slate-100 dark:bg-slate-700 px-2 py-1 text-sm text-slate-700 dark:text-slate-200">
+            <option>5 min antes</option>
+            <option>10 min antes</option>
+            <option>15 min antes</option>
+            <option>30 min antes</option>
+            <option>60 min antes</option>
+          </select>
+        </div>
+        <div class="flex items-center justify-between">
+          <p class="text-sm text-slate-500 dark:text-slate-400">Sonido</p>
+          <select class="rounded-md bg-slate-100 dark:bg-slate-700 px-2 py-1 text-sm text-slate-700 dark:text-slate-200">
+            <option>Predeterminado</option>
+            <option>Campanas</option>
+            <option>Pájaros</option>
+            <option>Alerta</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Ventolin Inhalador -->
-<div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-slate-800/50 p-4 shadow-sm mb-4">
+  <!-- Ventolin Inhalador -->
+  <div class="flex flex-col gap-3 rounded-xl bg-white dark:bg-slate-800/50 p-4 shadow-sm mb-4">
 
-  <div onclick="window.location.href='../ejemplo_ventolin/code.html'" class="flex items-start justify-between gap-3 cursor-pointer">
-    <div class="flex flex-col">
-      <h2 class="text-lg font-bold text-slate-900 dark:text-white">Ventolin Inhalador</h2>
-      <p class="text-sm text-slate-500 dark:text-slate-400">2 inhalaciones</p>
+    <button onclick="window.location.href='../ejemplo_ventolin/code.html'" class="flex items-center justify-between gap-3 w-full rounded-lg border border-slate-300 dark:border-slate-600 p-3 hover:bg-slate-100 dark:hover:bg-slate-700">
+      <div class="flex flex-col text-left">
+        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Ventolin Inhalador</h2>
+        <p class="text-sm text-slate-500 dark:text-slate-400">2 inhalaciones</p>
+      </div>
+      <span class="text-primary font-semibold">Más información</span>
+    </button>
+
+    <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+      <span class="material-symbols-outlined text-lg">device_reset</span>
+      <p class="text-sm font-medium">A demanda</p>
     </div>
-    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
-      <span class="material-symbols-outlined text-3xl">ventilator</span>
-    </div>
-  </div>
 
-  <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
-    <span class="material-symbols-outlined text-lg">device_reset</span>
-    <p class="text-sm font-medium">A demanda</p>
+    <button class="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-base font-semibold text-white add-dose-btn">
+      <span class="material-symbols-outlined">add_circle</span>
+      <span>Añadir toma</span>
+    </button>
   </div>
-
-  <button class="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-base font-semibold text-white add-dose-btn">
-    <span class="material-symbols-outlined">add_circle</span>
-    <span>Añadir toma</span>
-  </button>
-</div>
 
 </main>
 </div>
@@ -142,7 +143,6 @@
   document.querySelectorAll('.reminder-toggle').forEach(btn => {
     const circle = btn.querySelector('span');
 
-    // Inicial: inactivo
     btn.classList.remove('bg-primary');
     btn.classList.add('bg-gray-300', 'dark:bg-gray-600');
     circle.classList.remove('translate-x-5');
@@ -150,13 +150,11 @@
     btn.addEventListener('click', () => {
       const options = btn.closest('.flex.flex-col').querySelector('.reminder-options');
       if (btn.classList.contains('bg-primary')) {
-        // Desactivar
         btn.classList.remove('bg-primary');
         btn.classList.add('bg-gray-300', 'dark:bg-gray-600');
         circle.classList.remove('translate-x-5');
         options.classList.add('hidden');
       } else {
-        // Activar
         btn.classList.add('bg-primary');
         btn.classList.remove('bg-gray-300', 'dark:bg-gray-600');
         circle.classList.add('translate-x-5');
@@ -165,7 +163,7 @@
     });
   });
 
-  // Botón añadir toma (verde temporal)
+  // Botón añadir toma
   document.querySelectorAll('.add-dose-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const textSpan = btn.querySelector('span:nth-child(2)');
